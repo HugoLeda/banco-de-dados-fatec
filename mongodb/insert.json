@@ -1,0 +1,14 @@
+{
+  "nome": "Danilo",
+  "telefone1": 129988378,
+  "endereco": {
+    "rua": "Vitalina Marcusso",
+    "cep": 1837000
+  },
+  "possuiCNH": true,
+  "cpf": "48724960868",
+  "filiacao": {
+    "pai": "antonio",
+    "mae": "sandra"
+  }
+}
