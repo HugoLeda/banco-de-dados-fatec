@@ -1,14 +1,44 @@
-{
-  "nome": "Danilo",
-  "telefone1": 129988378,
-  "endereco": {
-    "rua": "Vitalina Marcusso",
-    "cep": 1837000
+[
+  {
+    "nome": "Ana",
+    "telefone1": 11987654321,
+    "endereco": {
+      "rua": "Rua das Flores, 123",
+      "cep": 01234567
+    },
+    "possuiCNH": true,
+    "cpf": "12345678901",
+    "filiacao": {
+      "pai": "João",
+      "mae": "Maria"
+    }
   },
-  "possuiCNH": true,
-  "cpf": "48724960868",
-  "filiacao": {
-    "pai": "antonio",
-    "mae": "sandra"
+  {
+    "nome": "João",
+    "telefone1": 21987654321,
+    "endereco": {
+      "rua": "Rua da Paz, 456",
+      "cep": 08765432
+    },
+    "possuiCNH": false,
+    "cpf": "98765432109",
+    "filiacao": {
+      "pai": "José",
+      "mae": "Ana"
+    }
+  },
+  {
+    "nome": "Maria",
+    "telefone1": 31987654321,
+    "endereco": {
+      "rua": "Avenida Brasil, 789",
+      "cep": 09876543
+    },
+    "possuiCNH": true,
+    "cpf": "01234567890",
+    "filiacao": {
+      "pai": "Carlos",
+      "estrutura": "Helena"
+    }
   }
-}
+]
