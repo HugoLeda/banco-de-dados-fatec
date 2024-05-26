@@ -1,0 +1,95 @@
+Quantos alunos estão matriculados no curso de Ciência de Dados ou Análise e Desenvolvimento de Sistemas? - 3.202
+
+db.alunos.find({
+  $or: [
+   { "cursos.nome": "Ciência de Dados" },
+   { "cursos.nome": "Análise e Desenvolvimento de Sistemas" }
+  ]
+}).count()
+
+Quantos alunos estão matriculados em Jogos Digitais e possuem 17 anos? 37
+
+db.alunos.find({
+  $and: [
+    { "cursos.nome": "Jogos Digitais" },
+    { "idade": 17 }
+  ]
+}).count()
+
+Quantos alunos estão matriculados em qualquer curso, menos Segurança da Informação? 6.937
+
+db.alunos.find({ "cursos.nome": {$ne: "Segurança da Informação"} }).count()
+
+Quantos alunos são do curso de Ciência ou Jogos, e concomitantemente da cidade de Avaré ou Ourinhos? (use os operadores and e or) 235
+
+db.alunos.find({
+  $and: [
+    {$or: [
+      { "cursos.nome": "Ciência de Dados" },
+      { "cursos.nome": "Jogos Digitais" }
+    ]},
+    {$or: [
+      { "endereco.cidade": "Ourinhos" },
+      { "endereco.cidade": "Avaré" }
+    ]}
+  ]
+}).count()
+
+Se a faculdade fosse juntar todos alunos dos termos 4, 5 e 6 dos cursos de Ciência, ADS e
+Segurança para uma palestra no auditório seria necessário quantos assentos? Considere que
+nenhum aluno irá faltar - 2.404
+
+db.alunos.find({
+  $and: [
+    {$or: [
+      { "cursos.nome": "Ciência de Dados" },
+      { "cursos.nome": "Análise e Desenvolvimento de Sistemas" },
+      { "cursos.nome": "Segurança da Informação" }
+    ]},
+    {$or: [
+      { "cursos.termo": 4 },
+      { "cursos.termo": 5 },
+      { "cursos.termo": 6 }
+    ]}
+  ]
+}).count()
+
+Se fosse organizado uma viagem para um evento em São Paulo que envolvesse apenas os alunos residentes em Avaré, Assis ou Ourinhos, e que sejam do curso de ADS, Jogos ou Ciência, e que estejam no 4° termo ou mais, quantos alunos iriam no evento? - 265
+
+db.alunos.find({
+  $and: [
+    {$or: [
+      { "endereco.cidade": "Ourinhos" },
+      { "endereco.cidade": "Avaré" },
+      { "endereco.cidade": "Assis" }
+    ]},
+    {$or: [
+      { "cursos.nome": "Ciência de Dados" },
+      { "cursos.nome": "Análise e Desenvolvimento de Sistemas" },
+      { "cursos.nome": "Jogos Digitais" }
+    ]},
+    {$or: [
+      { "cursos.termo": 4 },
+      { "cursos.termo": 5 },
+      { "cursos.termo": 6 }
+    ]}
+  ]
+}).count()
+
+Para melhor direcionar as ações de divulgação dos cursos da Fatec Ourinhos deseja-se saber quantos alunos ingressantes residem nas cidades da região, em especial nas cidades de  Avaré, Assis e Marília, com foco apenas em alunos que tenham ingressado no último vestibular em algum dos cursos matutinos (Agro, Jogos, Segurança). Quantos novos alunos tivemos neste semestre? - 80
+
+db.alunos.find({
+  $and: [
+    {$or: [
+      { "endereco.cidade": "Marília" },
+      { "endereco.cidade": "Avaré" },
+      { "endereco.cidade": "Assis" }
+    ]},
+    {$or: [
+      { "cursos.nome": "Agronegócio" },
+      { "cursos.nome": "Segurança da Informação" },
+      { "cursos.nome": "Jogos Digitais" }
+    ]},
+    { "cursos.termo": 1 }
+  ]
+}).count()
