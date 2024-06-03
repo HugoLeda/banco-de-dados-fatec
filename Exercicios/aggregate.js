@@ -46,9 +46,7 @@ db.pedidos.aggregate([
     }
   },
   {
-    $project: {
-      "data_hora_pedido": 1,
-      "forma_envio.endereco.cidade": 1,
+    $project: {      
       "forma_pagamento": 1,
       "status": 1,
       "valor_total": 1
